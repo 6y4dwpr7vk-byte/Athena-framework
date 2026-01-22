@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Athena — Style Preview</title>
+    <title>Athena — Dark Theme Style Preview</title>
     <style>
-        /* ===== GLOBAL STYLES - EDIT THESE TO CHANGE THE LOOK ===== */
+        /* ===== DARK THEME - EDIT THESE COLORS TO CUSTOMIZE ===== */
 
         :root {
             /* Dark Theme Color Palette */
@@ -214,7 +214,7 @@
             font-style: italic;
         }
 
-        /* Cards - White boxes on dark background */
+        /* Cards - Dark boxes on black background */
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -374,7 +374,7 @@
     <!-- Site Header with Image and Title -->
     <header class="site-header">
         <div class="container">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Crect width='150' height='150' fill='%23333'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23fff'%3EAthena%3C/text%3E%3C/svg%3E" alt="Athena" />
+            <img src="app/assets/images/athena.png" alt="Athena" />
             <div class="brand">
                 <h1>Athena</h1>
                 <p>Boundary-Respecting Systems</p>
@@ -562,17 +562,18 @@
         <p style="margin-top: 0.5rem;">Institutional analysis framework for judgment boundary mapping</p>
     </footer>
 
-    <!-- INSTRUCTIONS FOR USING YOUR OWN IMAGE -->
     <!--
-    To replace the placeholder image with the Athena image you shared:
+    ============================================
+    HOW TO REPLACE THE PLACEHOLDER IMAGE
+    ============================================
 
-    1. Save your Athena image file (from the screenshot) to the same folder as this HTML file
-    2. Name it something like "athena.png" or "athena.jpg"
-    3. Replace the <img src="..." in the header section (around line 303) with:
-       <img src="athena.png" alt="Athena" />
+    1. Save your Athena image in the same folder as this HTML file
+    2. Name it: athena.png (or athena.jpg)
+    3. Find line ~376 above (the <img src="..." line)
+    4. Replace it with: <img src="athena.png" alt="Athena" />
 
-    OR if you want to use an online image URL:
-       <img src="YOUR_IMAGE_URL_HERE" alt="Athena" />
+    OR use an online image URL:
+    <img src="YOUR_IMAGE_URL" alt="Athena" />
     -->
 </body>
 </html>
