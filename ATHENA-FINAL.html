@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athena — Dark Theme</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .site-header {
+            background-color: #000000;
+            border-bottom: 1px solid #333333;
+            padding: 2rem 0;
+        }
+
+        .site-header .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .site-header img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+        }
+
+        .site-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .site-header p {
+            font-size: 1.25rem;
+            color: #b0b0b0;
+            margin: 0.5rem 0 0 0;
+        }
+
+        nav {
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #333333;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+        }
+
+        nav a:hover { color: #ffffff; }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        h1 { font-size: 2.5rem; color: #ffffff; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.875rem; color: #ffffff; margin-top: 2.5rem; margin-bottom: 1rem; }
+        h3 { font-size: 1.5rem; color: #ffffff; margin-top: 2rem; margin-bottom: 0.75rem; }
+        h4 { font-size: 1.25rem; color: #ffffff; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        p { margin-bottom: 1.25rem; color: #ffffff; }
+
+        .subtitle { font-size: 1.25rem; color: #b0b0b0; margin-bottom: 2rem; }
+
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h4 { margin-top: 0; }
+
+        footer {
+            background-color: #1a1a1a;
+            border-top: 1px solid #333333;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+            color: #b0b0b0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <img src="athena-logo.jpg" alt="Athena">
+            <div>
+                <h1>Athena</h1>
+                <p>Boundary-Respecting Systems</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">JBF</a></li>
+                <li><a href="#">Sociology</a></li>
+                <li><a href="#">Diagnostic</a></li>
+                <li><a href="#">Demo</a></li>
+                <li><a href="#">Examples</a></li>
+                <li><a href="#">Info</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Athena — Boundary-Respecting Systems</h1>
+        <p class="subtitle">A framework for institutional analysis and judgment boundary mapping</p>
+
+        <section>
+            <h2>Overview</h2>
+            <p>
+                Athena represents a systematic approach to understanding and implementing boundary-respecting systems
+                across institutional contexts. The framework provides analytical tools for mapping judgment boundaries
+                and evaluating institutional decision-making processes.
+            </p>
+        </section>
+
+        <section>
+            <h2>Core Components</h2>
+
+            <div class="card">
+                <h4>Judgment Boundary Framework (JBF)</h4>
+                <p>
+                    The foundational analytical tool for identifying and mapping decision boundaries within systems.
+                    The JBF provides a structured approach to understanding where judgment is appropriately exercised
+                    and where boundaries must be maintained.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4>Institutional Analysis</h4>
+                <p>
+                    Application of boundary-respecting principles to institutional contexts. This component examines
+                    how organizations, systems, and structures implement appropriate judgment boundaries in practice.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4>Diagnostic Tools</h4>
+                <p>
+                    Interactive instruments for evaluating boundary-respecting characteristics in existing or proposed
+                    systems. These tools enable practical application of the theoretical framework.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Athena — Boundary-Respecting Systems</p>
+    </footer>
+</body>
+</html>
