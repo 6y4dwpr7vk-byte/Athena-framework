@@ -1,0 +1,7 @@
+# Robots.txt for Athena — Boundary-Respecting Systems
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://athena.example.com/sitemap.xml
