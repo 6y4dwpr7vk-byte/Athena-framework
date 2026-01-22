@@ -1,27 +1,10 @@
-name = "athena-diagnostic-worker"
+name = "athena-worker"
 main = "src/index.ts"
 compatibility_date = "2024-01-01"
 
-# Worker configuration
-workers_dev = true
+[vars]
+# Add any environment variables here
 
-# Local development configuration
 [dev]
 port = 8787
-local_protocol = "http"
-
-# CORS is handled in the worker code (src/index.ts)
-# allowing requests from localhost:3000 or any origin during development
-
-# Build configuration
-[build]
-command = ""
-
-# Environment variables (if needed)
-# [vars]
-# KEY = "value"
-
-# Production routes (uncomment and configure when deploying)
-# [[routes]]
-# pattern = "athena.example.com/api/*"
-# zone_name = "example.com"
+ip = "localhost"

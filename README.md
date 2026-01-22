@@ -66,21 +66,39 @@ athena-system/
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/[your-username]/athena-system.git
-   cd athena-system
+   git clone https://github.com/6y4dwpr7vk-byte/Athena-framework.git
+   cd Athena-framework
    ```
 
-2. **Install Wrangler (Cloudflare Worker CLI):**
+2. **Install dependencies:**
 
    ```bash
-   npm install -g wrangler
+   npm install
    ```
 
-   Or use npx to run without global installation (recommended).
+   This installs `concurrently` for running both services simultaneously.
 
 ## Local Development
 
-### Running the Backend Worker
+### Quick Start (Recommended)
+
+Start both the frontend and backend with a single command:
+
+```bash
+npm start
+```
+
+This launches:
+- **Frontend** on `http://localhost:3000`
+- **Worker** on `http://localhost:8787`
+
+Access the application at `http://localhost:3000` and test the interactive tool at `http://localhost:3000/demo/`
+
+### Manual Setup (Alternative)
+
+If you prefer to run services individually:
+
+#### Running the Backend Worker
 
 The Cloudflare Worker must be running to enable the interactive diagnostic tool.
 
@@ -110,7 +128,7 @@ The Cloudflare Worker must be running to enable the interactive diagnostic tool.
 
    You should receive a JSON response with diagnostic analysis.
 
-### Running the Frontend Application
+#### Running the Frontend Application
 
 The frontend can be served using any static file server.
 
@@ -154,25 +172,15 @@ The frontend can be served using any static file server.
 
    Open your browser and navigate to `http://localhost:3000`
 
-### Development Workflow
+### Individual Service Commands
 
-For full functionality, run both services simultaneously:
+You can also run services separately using these npm scripts:
 
-1. **Terminal 1 - Backend Worker:**
-   ```bash
-   cd worker
-   npx wrangler dev
-   ```
-
-2. **Terminal 2 - Frontend App:**
-   ```bash
-   cd app
-   python3 -m http.server 3000
-   ```
-
-3. **Access the application at:** `http://localhost:3000`
-
-4. **Test the interactive tool at:** `http://localhost:3000/demo/`
+```bash
+npm run worker    # Start only the Cloudflare Worker (port 8787)
+npm run app       # Start only the frontend (port 3000)
+npm run dev       # Alias for npm start
+```
 
 ## Features
 
