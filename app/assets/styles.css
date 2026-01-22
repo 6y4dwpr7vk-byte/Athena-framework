@@ -2,13 +2,15 @@
 /* Global Styles with Academic Tone */
 
 :root {
-  --bg: #fafafa;
-  --accent: #1f2937;
-  --border: #d9d9d9;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
+  /* Dark Theme Color Palette */
+  --bg: #000000;
+  --accent: #ffffff;
+  --border: #333333;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
   --white: #ffffff;
-  --link-hover: #374151;
+  --card-bg: #1a1a1a;
+  --link-hover: #d4d4d4;
 }
 
 * {
@@ -27,13 +29,13 @@ body {
 
 /* Global Navigation */
 nav {
-  background-color: var(--white);
+  background-color: var(--card-bg);
   border-bottom: 1px solid var(--border);
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 nav .container {
@@ -187,12 +189,12 @@ blockquote {
 
 /* Cards and Panels */
 .card {
-  background: var(--white);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
 }
 
 /* Forms and Inputs */
@@ -213,7 +215,8 @@ select {
   border-radius: 6px;
   font-size: 1rem;
   font-family: inherit;
-  background-color: var(--white);
+  background-color: var(--card-bg);
+  color: var(--text-primary);
   transition: border-color 0.2s ease;
 }
 
@@ -223,7 +226,7 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.1);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
 
 textarea {
@@ -281,7 +284,11 @@ td {
 th {
   font-weight: 600;
   color: var(--accent);
-  background-color: #f9fafb;
+  background-color: var(--card-bg);
+}
+
+td {
+  color: var(--text-primary);
 }
 
 /* Images */
@@ -301,7 +308,7 @@ img {
 
 /* Footer */
 footer {
-  background-color: var(--white);
+  background-color: var(--card-bg);
   border-top: 1px solid var(--border);
   padding: 2rem 0;
   margin-top: 4rem;
