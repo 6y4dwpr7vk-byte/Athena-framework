@@ -188,43 +188,37 @@
         <p>Athena — Boundary-Respecting Systems</p>
     </footer>
     <script>
-  // 1. This is your live backend address
-  const WORKER_URL = 'https://athena-framework.6y4dwpr7vk.workers.dev';
-
-  // 2. This function sends your data to the backend
-  async function sendDiagnostic(event) {
-    event.preventDefault(); // This stops the page from refreshing
+  async function handleAthenaSubmit(event) {
+    event.preventDefault(); // This keeps you on the same page
     
-    // This part grabs all the information from your form
+    // Replace this with YOUR actual URL from the browser bar
+    const LIVE_URL = 'https://athena-framework.6y4dwpr7vk.workers.dev';
+
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
+    const payload = Object.fromEntries(formData.entries());
 
     try {
-      // This part sends the data to your Cloudflare Worker
-      const response = await fetch(WORKER_URL, {
-        method: 'POST', // This satisfies the "Please use POST" error
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+      const response = await fetch(LIVE_URL, {
+        method: 'POST', // This fixes the "Use POST" error
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       });
 
       if (response.ok) {
-        alert('Success! Athena is analyzing your data.');
+        alert("Athena has received your data!");
       } else {
-        alert('Something went wrong with the connection.');
+        alert("Worker is live, but returned an error: " + response.status);
       }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Could not connect to the Athena server.');
+    } catch (err) {
+      alert("Could not connect to the Worker.");
     }
   }
 
-  // 3. This tells your form to use the function above when "Submit" is clicked
+  // Attach this logic to your form
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form');
-    if (form) {
-      form.addEventListener('submit', sendDiagnostic);
+    const myForm = document.querySelector('form');
+    if (myForm) {
+      myForm.addEventListener('submit', handleAthenaSubmit);
     }
   });
 </script>
