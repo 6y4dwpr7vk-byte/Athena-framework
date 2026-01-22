@@ -27,6 +27,41 @@ body {
   font-size: 16px;
 }
 
+/* Site Header with Logo */
+.site-header {
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 0;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.site-header img.header-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+}
+
+.site-header .brand h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0;
+  letter-spacing: -0.025em;
+}
+
+.site-header .brand p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin: 0.5rem 0 0 0;
+}
+
 /* Global Navigation */
 nav {
   background-color: var(--card-bg);
