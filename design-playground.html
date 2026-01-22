@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athena Design Playground — Visual Design Lab</title>
+    <link rel="stylesheet" href="app/assets/styles.css">
+    <style>
+        /* Additional playground-specific styles */
+        .playground-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 2px dashed var(--border);
+        }
+
+        .playground-section h2 {
+            margin-top: 0;
+            color: #6b7280;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .color-swatch {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            margin-right: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-label {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            font-family: monospace;
+        }
+
+        .typography-scale {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .spacing-demo {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        .spacing-demo > * {
+            background: #e5e7eb;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (from actual implementation) -->
+    <nav>
+        <div class="container">
+            <a href="app/index.html" class="site-title">Athena</a>
+            <ul>
+                <li><a href="app/index.html">Home</a></li>
+                <li><a href="app/about/">About</a></li>
+                <li><a href="app/jbf/">JBF</a></li>
+                <li><a href="app/sociology/">Sociology</a></li>
+                <li><a href="app/diagnostic-class/">Diagnostic</a></li>
+                <li><a href="app/demo/">Demo</a></li>
+                <li><a href="app/examples/">Examples</a></li>
+                <li><a href="app/info/">Info</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Athena Design Playground</h1>
+        <p class="subtitle">Visual design laboratory for typography, color, and component testing</p>
+
+        <!-- Color Palette -->
+        <div class="playground-section">
+            <h2>Color Palette</h2>
+            <div>
+                <div style="display: inline-block; margin-right: 2rem;">
+                    <div class="color-swatch" style="background-color: #fafafa;"></div>
+                    <span class="color-label">Background<br>#fafafa</span>
+                </div>
+                <div style="display: inline-block; margin-right: 2rem;">
+                    <div class="color-swatch" style="background-color: #1f2937;"></div>
+                    <span class="color-label">Accent<br>#1f2937</span>
+                </div>
+                <div style="display: inline-block; margin-right: 2rem;">
+                    <div class="color-swatch" style="background-color: #d9d9d9;"></div>
+                    <span class="color-label">Border<br>#d9d9d9</span>
+                </div>
+                <div style="display: inline-block;">
+                    <div class="color-swatch" style="background-color: #6b7280;"></div>
+                    <span class="color-label">Text Secondary<br>#6b7280</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Typography Scale -->
+        <div class="playground-section">
+            <h2>Typography Scale</h2>
+            <div class="typography-scale">
+                <h1 style="margin-bottom: 1rem;">Heading 1 (2.5rem) — Page Titles</h1>
+                <h2 style="margin-bottom: 1rem;">Heading 2 (1.875rem) — Section Headers</h2>
+                <h3 style="margin-bottom: 1rem;">Heading 3 (1.5rem) — Subsections</h3>
+                <h4 style="margin-bottom: 1rem;">Heading 4 (1.25rem) — Card Titles</h4>
+                <p style="margin-bottom: 1rem;">Body text (1rem) — The quick brown fox jumps over the lazy dog. This is standard paragraph text with appropriate line height (1.6) for academic readability.</p>
+                <p class="subtitle">Subtitle (1.25rem) — Used for page descriptions below main headings</p>
+                <p style="font-size: 0.9375rem; margin-top: 1rem;">Navigation text (0.9375rem) — Slightly smaller for UI elements</p>
+            </div>
+        </div>
+
+        <!-- Component Library -->
+        <div class="playground-section">
+            <h2>Component Library</h2>
+
+            <!-- Cards -->
+            <h3>Card Component</h3>
+            <div class="card">
+                <h4>Boundary-Respecting Behaviors</h4>
+                <p>Systems demonstrating consistent boundary maintenance and appropriate scope limitation. This card design provides visual separation for distinct concepts within the framework.</p>
+                <p><a href="#">Learn more about Class A behaviors →</a></p>
+            </div>
+
+            <!-- Buttons -->
+            <h3 style="margin-top: 2rem;">Button Styles</h3>
+            <button>Analyze Boundary Behaviors</button>
+            <button disabled style="margin-left: 1rem;">Processing...</button>
+
+            <!-- Forms -->
+            <h3 style="margin-top: 2rem;">Form Elements</h3>
+            <div class="form-group">
+                <label for="sample-input">Institution Name</label>
+                <input type="text" id="sample-input" placeholder="e.g., University Review Committee">
+            </div>
+            <div class="form-group">
+                <label for="sample-select">Institution Type</label>
+                <select id="sample-select">
+                    <option value="">Select a type...</option>
+                    <option value="academic">Academic Institution</option>
+                    <option value="healthcare">Healthcare System</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sample-textarea">Observed Behaviors</label>
+                <textarea id="sample-textarea" placeholder="Describe actual decision-making patterns..."></textarea>
+            </div>
+        </div>
+
+        <!-- Spacing System -->
+        <div class="playground-section">
+            <h2>Spacing System</h2>
+            <div class="spacing-demo">
+                <div>Section spacing: 3rem (48px)</div>
+                <div>Element spacing: 1.5rem (24px)</div>
+                <div>Paragraph spacing: 1.25rem (20px)</div>
+                <div>Form group spacing: 1.5rem (24px)</div>
+                <div>Tight spacing: 0.5rem (8px)</div>
+            </div>
+        </div>
+
+        <!-- Sample Content Sections -->
+        <div class="playground-section">
+            <h2>Sample Page Section (JBF-style)</h2>
+            <section>
+                <h2>Framework Overview</h2>
+                <p>
+                    The Judgment Boundary Framework (JBF) provides a systematic methodology for identifying, analyzing,
+                    and evaluating boundary structures within institutional systems. The framework enables rigorous
+                    assessment of where judgment is appropriately exercised and where boundaries must be maintained.
+                </p>
+
+                <h3>Core Concepts</h3>
+                <p>
+                    A judgment boundary defines the scope within which a system legitimately exercises evaluative
+                    authority. These boundaries delineate what falls within versus outside the system's proper domain
+                    of assessment and decision-making.
+                </p>
+
+                <ul>
+                    <li><strong>Competence boundaries:</strong> Limits based on system expertise or knowledge domain</li>
+                    <li><strong>Authority boundaries:</strong> Limits based on legitimate jurisdiction or mandate</li>
+                    <li><strong>Informational boundaries:</strong> Limits based on available or accessible information</li>
+                </ul>
+
+                <blockquote>
+                    The legitimacy of institutional authority depends fundamentally on the maintenance of appropriate
+                    boundaries. Extension beyond these boundaries constitutes overreach regardless of intent or outcome.
+                </blockquote>
+
+                <div class="card">
+                    <h4>Structural Analysis</h4>
+                    <p>
+                        Examination of formal boundary definitions, documented procedures, stated criteria, and
+                        organizational structure. This dimension assesses what boundaries are officially recognized
+                        and how they are institutionally encoded.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Diagnostic Output Sample -->
+        <div class="playground-section">
+            <h2>Diagnostic Output (Demo Page)</h2>
+            <div class="diagnostic-output">
+                <h3>Diagnostic Results</h3>
+                <div class="card">
+                    <h4>Institution: University Review Committee</h4>
+                    <p><strong>Type:</strong> Academic Institution</p>
+
+                    <h4>Primary Classification</h4>
+                    <p><strong>Class B: Boundary-Ambiguous Behaviors</strong></p>
+
+                    <h4>Analysis</h4>
+                    <p>
+                        The institution demonstrates unclear boundaries or inconsistent boundary application, creating
+                        uncertainty about legitimate scope. While not systematic violations, the ambiguity enables
+                        potential boundary transgression.
+                    </p>
+
+                    <h4>Sub-Classifications</h4>
+                    <ul>
+                        <li><strong>B1:</strong> Undefined Boundaries - Absence of clear boundary specification</li>
+                        <li><strong>B2:</strong> Inconsistent Application - Boundary application varies across cases</li>
+                    </ul>
+
+                    <h4>Preliminary Recommendations</h4>
+                    <ul>
+                        <li>Develop explicit boundary documentation</li>
+                        <li>Establish consistent criteria for boundary application</li>
+                        <li>Create procedures for boundary clarification when ambiguity arises</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid/Layout Testing -->
+        <div class="playground-section">
+            <h2>Layout & Container Width</h2>
+            <p>The main container width is set to 980px (centered). This provides optimal line length for academic reading while maintaining visual hierarchy.</p>
+            <div style="background: #e5e7eb; padding: 1rem; text-align: center; border-radius: 6px;">
+                Current container width: 980px max-width
+            </div>
+        </div>
+
+        <!-- Navigation States -->
+        <div class="playground-section">
+            <h2>Navigation States</h2>
+            <p>Navigation links have three states:</p>
+            <ul>
+                <li><strong>Default:</strong> Secondary text color (#6b7280)</li>
+                <li><strong>Hover:</strong> Accent color (#1f2937)</li>
+                <li><strong>Active:</strong> Accent color (indicates current page)</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>Athena — Boundary-Respecting Systems</p>
+        <p class="text-secondary">Design Playground for Visual Refinement</p>
+    </footer>
+
+    <script>
+        console.log('Athena Design Playground loaded');
+        console.log('CSS Variables:', {
+            bg: getComputedStyle(document.documentElement).getPropertyValue('--bg'),
+            accent: getComputedStyle(document.documentElement).getPropertyValue('--accent'),
+            border: getComputedStyle(document.documentElement).getPropertyValue('--border')
+        });
+    </script>
+</body>
+</html>
