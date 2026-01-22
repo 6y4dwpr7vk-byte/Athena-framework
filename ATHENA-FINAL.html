@@ -187,41 +187,5 @@
     <footer>
         <p>Athena — Boundary-Respecting Systems</p>
     </footer>
-    <script>
-  async function handleAthenaSubmit(event) {
-    event.preventDefault(); // This keeps you on the same page
-    
-    // Replace this with YOUR actual URL from the browser bar
-    const LIVE_URL = 'https://athena-framework.6y4dwpr7vk.workers.dev';
-
-    const formData = new FormData(event.target);
-    const payload = Object.fromEntries(formData.entries());
-
-    try {
-      const response = await fetch(LIVE_URL, {
-        method: 'POST', // This fixes the "Use POST" error
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (response.ok) {
-        alert("Athena has received your data!");
-      } else {
-        alert("Worker is live, but returned an error: " + response.status);
-      }
-    } catch (err) {
-      alert("Could not connect to the Worker.");
-    }
-  }
-
-  // Attach this logic to your form
-  document.addEventListener('DOMContentLoaded', () => {
-    const myForm = document.querySelector('form');
-    if (myForm) {
-      myForm.addEventListener('submit', handleAthenaSubmit);
-    }
-  });
-</script>
-
 </body>
 </html>
