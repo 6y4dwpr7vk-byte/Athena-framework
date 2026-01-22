@@ -8,14 +8,15 @@
         /* ===== GLOBAL STYLES - EDIT THESE TO CHANGE THE LOOK ===== */
 
         :root {
-            /* Color Palette - Change these to experiment with different colors */
-            --bg: #fafafa;
-            --accent: #1f2937;
-            --border: #d9d9d9;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --white: #ffffff;
-            --link-hover: #374151;
+            /* Dark Theme Color Palette */
+            --bg: #000000;              /* Black background */
+            --accent: #ffffff;          /* White accent */
+            --border: #333333;          /* Dark gray borders */
+            --text-primary: #ffffff;    /* White text */
+            --text-secondary: #b0b0b0;  /* Light gray secondary text */
+            --white: #ffffff;           /* White */
+            --card-bg: #1a1a1a;         /* Dark gray for cards */
+            --link-hover: #d4d4d4;      /* Lighter gray on hover */
         }
 
         * {
@@ -32,15 +33,57 @@
             font-size: 16px;
         }
 
+        /* Header with Image and Title */
+        .site-header {
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 0;
+        }
+
+        .site-header .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .site-header img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+        }
+
+        .site-header .brand {
+            flex: 1;
+        }
+
+        .site-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 0;
+            letter-spacing: -0.025em;
+        }
+
+        .site-header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin: 0.5rem 0 0 0;
+        }
+
         /* Navigation */
         nav {
-            background-color: var(--white);
+            background-color: var(--card-bg);
             border-bottom: 1px solid var(--border);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         nav .container {
@@ -171,14 +214,14 @@
             font-style: italic;
         }
 
-        /* Cards */
+        /* Cards - White boxes on dark background */
         .card {
-            background: var(--white);
+            background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
         }
 
         .card h4 {
@@ -203,7 +246,8 @@
             border-radius: 6px;
             font-size: 1rem;
             font-family: inherit;
-            background-color: var(--white);
+            background-color: var(--card-bg);
+            color: var(--text-primary);
             transition: border-color 0.2s ease;
         }
 
@@ -213,7 +257,7 @@
         select:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
         }
 
         textarea {
@@ -228,7 +272,7 @@
         /* Buttons */
         button {
             background-color: var(--accent);
-            color: var(--white);
+            color: var(--bg);
             border: none;
             padding: 0.75rem 1.5rem;
             border-radius: 6px;
@@ -264,7 +308,11 @@
         th {
             font-weight: 600;
             color: var(--accent);
-            background-color: #f9fafb;
+            background-color: var(--card-bg);
+        }
+
+        td {
+            color: var(--text-primary);
         }
 
         /* Sections */
@@ -274,7 +322,7 @@
 
         /* Footer */
         footer {
-            background-color: var(--white);
+            background-color: var(--card-bg);
             border-top: 1px solid var(--border);
             padding: 2rem 0;
             margin-top: 4rem;
@@ -285,6 +333,20 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .site-header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .site-header img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .site-header h1 {
+                font-size: 2rem;
+            }
+
             nav .container {
                 flex-direction: column;
                 align-items: flex-start;
@@ -309,6 +371,17 @@
     </style>
 </head>
 <body>
+    <!-- Site Header with Image and Title -->
+    <header class="site-header">
+        <div class="container">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Crect width='150' height='150' fill='%23333'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='20' fill='%23fff'%3EAthena%3C/text%3E%3C/svg%3E" alt="Athena" />
+            <div class="brand">
+                <h1>Athena</h1>
+                <p>Boundary-Respecting Systems</p>
+            </div>
+        </div>
+    </header>
+
     <!-- Navigation -->
     <nav>
         <div class="container">
@@ -488,5 +561,18 @@
         <p>Athena — Boundary-Respecting Systems</p>
         <p style="margin-top: 0.5rem;">Institutional analysis framework for judgment boundary mapping</p>
     </footer>
+
+    <!-- INSTRUCTIONS FOR USING YOUR OWN IMAGE -->
+    <!--
+    To replace the placeholder image with the Athena image you shared:
+
+    1. Save your Athena image file (from the screenshot) to the same folder as this HTML file
+    2. Name it something like "athena.png" or "athena.jpg"
+    3. Replace the <img src="..." in the header section (around line 303) with:
+       <img src="athena.png" alt="Athena" />
+
+    OR if you want to use an online image URL:
+       <img src="YOUR_IMAGE_URL_HERE" alt="Athena" />
+    -->
 </body>
 </html>
