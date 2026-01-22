@@ -187,5 +187,47 @@
     <footer>
         <p>Athena — Boundary-Respecting Systems</p>
     </footer>
+    <script>
+  // 1. This is your live backend address
+  const WORKER_URL = 'https://athena-framework.6y4dwpr7vk.workers.dev';
+
+  // 2. This function sends your data to the backend
+  async function sendDiagnostic(event) {
+    event.preventDefault(); // This stops the page from refreshing
+    
+    // This part grabs all the information from your form
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      // This part sends the data to your Cloudflare Worker
+      const response = await fetch(WORKER_URL, {
+        method: 'POST', // This satisfies the "Please use POST" error
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        alert('Success! Athena is analyzing your data.');
+      } else {
+        alert('Something went wrong with the connection.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Could not connect to the Athena server.');
+    }
+  }
+
+  // 3. This tells your form to use the function above when "Submit" is clicked
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+    if (form) {
+      form.addEventListener('submit', sendDiagnostic);
+    }
+  });
+</script>
+
 </body>
 </html>
