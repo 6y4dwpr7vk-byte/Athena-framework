@@ -4,11 +4,11 @@
   "description": "Athena — Boundary-Respecting Systems. Framework for institutional analysis and judgment boundary mapping.",
   "scripts": {
     "start": "concurrently \"npm run start:app\" \"npm run start:worker\"",
-    "start:app": "cd app && python3 -m http.server 3000",
+    "start:app": "cd docs && python3 -m http.server 3000",
     "start:worker": "cd worker && npx wrangler dev",
     "dev": "npm run start",
     "worker": "cd worker && npx wrangler dev",
-    "app": "cd app && python3 -m http.server 3000",
+    "app": "cd docs && python3 -m http.server 3000",
     "deploy:worker": "cd worker && npx wrangler deploy"
   },
   "keywords": [
