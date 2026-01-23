@@ -3,42 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Interactive diagnostic tool for boundary-respecting systems analysis.">
-    <title>Interactive Diagnostic Tool — Athena</title>
+    <meta name="description" content="Diagnostic tool demo">
+    <title>Demo — Athena</title>
     <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">Mode</button>
     <nav>
         <div class="container">
             <a href="../" class="site-title">Athena</a>
             <ul>
                 <li><a href="../">Home</a></li>
-                <li><a href="../about/">About</a></li>
+                <li><a href="../about/">Read</a></li>
                 <li><a href="../jbf/">JBF</a></li>
-                <li><a href="../sociology/">Sociology</a></li>
+                <li><a href="../sociology/">Notes</a></li>
                 <li><a href="../diagnostic-class/">Diagnostic</a></li>
                 <li><a href="../demo/" class="active">Demo</a></li>
                 <li><a href="../examples/">Examples</a></li>
-                <li><a href="../info/">Info</a></li>
+                <li><a href="../info/">Citations</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container">
-        <h1>Interactive Diagnostic Tool</h1>
-        <p class="subtitle">Real-time boundary analysis application</p>
+        <h1>Demo</h1>
+        <p class="subtitle">Diagnostic tool</p>
 
         <section>
-            <h2>Tool Overview</h2>
             <p>
-                This interactive tool applies the <a href="../jbf/">Judgment Boundary Framework</a> to institutional
-                scenarios, providing real-time diagnostic assessment. The tool evaluates boundary behaviors and
-                generates classification recommendations based on the <a href="../diagnostic-class/">diagnostic
-                classification system</a>.
+                Applies the <a href="../jbf/">JBF</a> to input scenarios. Outputs diagnostic signals based on stated vs. observed boundary patterns.
             </p>
-            <p>
-                Enter details about an institutional context below, and the tool will analyze boundary-respecting
-                or boundary-violating characteristics.
+            <p class="boundary-note">
+                Outputs are signals, not recommendations.
             </p>
         </section>
 
@@ -99,73 +95,155 @@
                     ></textarea>
                 </div>
 
-                <button type="submit" id="submitBtn">Analyze Boundary Behaviors</button>
+                <div class="form-group">
+                    <label for="imageUpload">Upload image</label>
+                    <p class="text-secondary" style="font-size: 0.875rem; margin-bottom: 0.5rem;">
+                        Local file. Not stored.
+                    </p>
+                    <input
+                        type="file"
+                        id="imageUpload"
+                        name="imageUpload"
+                        accept="image/jpeg,image/png,image/webp"
+                    >
+                    <div id="imagePreview" style="display: none; margin-top: 1rem;">
+                        <img id="previewImg" src="" alt="Preview" style="max-width: 200px; border-radius: 4px;">
+                        <div style="margin-top: 0.5rem;">
+                            <button type="button" id="replaceBtn" style="font-size: 0.875rem; padding: 0.5rem 1rem;">Replace</button>
+                            <button type="button" id="removeBtn" style="font-size: 0.875rem; padding: 0.5rem 1rem; background: transparent; color: var(--text-secondary); border: 1px solid var(--border);">Remove</button>
+                        </div>
+                    </div>
+                    <div id="uploadError" style="display: none; color: #dc2626; font-size: 0.875rem; margin-top: 0.5rem;"></div>
+                </div>
+
+                <button type="submit" id="submitBtn">Run diagnostic</button>
             </form>
         </section>
 
         <section id="resultsSection" style="display: none;">
             <h2>Diagnostic Results</h2>
+            <div style="margin-bottom: 1rem;">
+                <button id="downloadPdfBtn" style="display: none; font-size: 0.875rem; padding: 0.5rem 1rem;">Download PDF</button>
+                <div id="pdfError" style="display: none; color: #dc2626; font-size: 0.875rem; margin-top: 0.5rem;"></div>
+            </div>
             <div id="diagnosticOutput" class="diagnostic-output">
                 <div id="loadingIndicator" style="display: none;">
-                    <p>Analyzing boundary behaviors...</p>
+                    <p>Running diagnostic...</p>
                 </div>
                 <div id="resultsContent"></div>
             </div>
         </section>
 
         <section>
-            <h2>Using the Tool</h2>
-
-            <h3>Input Guidelines</h3>
+            <h3>Input</h3>
             <ul>
-                <li><strong>Stated Boundaries:</strong> Include official policies, documented criteria, and formal scope definitions</li>
-                <li><strong>Observed Behaviors:</strong> Describe actual practices, decision patterns, and specific cases</li>
-                <li><strong>Be Specific:</strong> Include concrete examples and documented incidents when possible</li>
-                <li><strong>Maintain Objectivity:</strong> Focus on observable behaviors rather than inferred intentions</li>
+                <li><strong>Stated Boundaries:</strong> Official policies, documented criteria, formal scope</li>
+                <li><strong>Observed Behaviors:</strong> Actual practices, decision patterns, specific cases</li>
             </ul>
 
-            <h3>Output Interpretation</h3>
-            <p>
-                The tool provides:
-            </p>
+            <h3>Output</h3>
             <ul>
-                <li>Primary classification (A, B, or C) based on overall boundary behavior pattern</li>
-                <li>Applicable sub-classifications for specific boundary behaviors</li>
-                <li>Analysis of discrepancies between stated and enacted boundaries</li>
-                <li>Preliminary recommendations for boundary clarification or remediation</li>
+                <li>Classification signal (A, B, or C)</li>
+                <li>Discrepancy indicators between stated and observed boundaries</li>
+                <li>Missing or unclear data points</li>
             </ul>
-
-            <h3>Limitations</h3>
-            <p>
-                This tool provides preliminary diagnostic assessment based on submitted information. Comprehensive
-                boundary analysis requires deeper institutional examination and may benefit from expert consultation.
-                The tool serves as a starting point for systematic boundary evaluation, not as definitive judgment.
+            <p class="boundary-note">
+                Outputs are diagnostic signals. Interpretation remains external.
             </p>
         </section>
 
         <section>
-            <h2>Related Resources</h2>
+            <h3>Related</h3>
             <ul>
-                <li><a href="../jbf/">Judgment Boundary Framework</a> — Complete analytical methodology</li>
-                <li><a href="../diagnostic-class/">Diagnostic Classification</a> — Detailed classification criteria</li>
-                <li><a href="../examples/">Worked Examples</a> — See the framework applied to real cases</li>
+                <li><a href="../jbf/">JBF</a></li>
+                <li><a href="../diagnostic-class/">Diagnostic</a></li>
+                <li><a href="../examples/">Examples</a></li>
             </ul>
         </section>
     </main>
 
     <footer>
-        <p>Athena — Boundary-Respecting Systems</p>
-        <p class="text-secondary">Institutional analysis framework for judgment boundary mapping</p>
+        <p>Athena</p>
+        <p class="text-secondary">Diagnostic boundary framework</p>
     </footer>
 
     <script>
-        // The Bridge: JavaScript for handling form submission to Cloudflare Worker
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        root.setAttribute('data-theme', currentTheme);
+        themeToggle.addEventListener('click', () => {
+            const theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        });
+
+        // Image upload handling
+        const imageUpload = document.getElementById('imageUpload');
+        const imagePreview = document.getElementById('imagePreview');
+        const previewImg = document.getElementById('previewImg');
+        const replaceBtn = document.getElementById('replaceBtn');
+        const removeBtn = document.getElementById('removeBtn');
+        const uploadError = document.getElementById('uploadError');
+
+        const maxFileSize = 5 * 1024 * 1024; // 5MB
+        let uploadedFile = null;
+
+        imageUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            uploadError.style.display = 'none';
+
+            // Validate file type
+            if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
+                uploadError.textContent = 'Unsupported file type.';
+                uploadError.style.display = 'block';
+                imageUpload.value = '';
+                return;
+            }
+
+            // Validate file size
+            if (file.size > maxFileSize) {
+                uploadError.textContent = 'File exceeds size limit.';
+                uploadError.style.display = 'block';
+                imageUpload.value = '';
+                return;
+            }
+
+            // Show preview
+            uploadedFile = file;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImg.src = e.target.result;
+                imagePreview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        });
+
+        replaceBtn.addEventListener('click', () => {
+            imageUpload.click();
+        });
+
+        removeBtn.addEventListener('click', () => {
+            imageUpload.value = '';
+            uploadedFile = null;
+            imagePreview.style.display = 'none';
+            uploadError.style.display = 'none';
+        });
+
+        // Form submission
         const diagnosticForm = document.getElementById('diagnosticForm');
         const resultsSection = document.getElementById('resultsSection');
         const diagnosticOutput = document.getElementById('diagnosticOutput');
         const loadingIndicator = document.getElementById('loadingIndicator');
         const resultsContent = document.getElementById('resultsContent');
         const submitBtn = document.getElementById('submitBtn');
+        const downloadPdfBtn = document.getElementById('downloadPdfBtn');
+        const pdfError = document.getElementById('pdfError');
+
+        let latestResults = null;
 
         diagnosticForm.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -198,13 +276,28 @@
 
                 const data = await response.json();
 
+                // Store results for PDF generation
+                latestResults = {
+                    timestamp: new Date().toISOString(),
+                    inputs: {
+                        institutionName: formData.get('institutionName'),
+                        institutionType: formData.get('institutionType'),
+                        statedBoundaries: formData.get('statedBoundaries'),
+                        observedBehaviors: formData.get('observedBehaviors'),
+                        specificConcerns: formData.get('specificConcerns'),
+                        imageFilename: uploadedFile ? uploadedFile.name : null
+                    },
+                    output: data.diagnostic
+                };
+
                 // Display results
                 loadingIndicator.style.display = 'none';
                 diagnosticOutput.classList.remove('loading');
+                downloadPdfBtn.style.display = 'inline-block';
 
                 if (data.diagnostic) {
                     resultsContent.innerHTML = `
-                        <h3>Analysis Complete</h3>
+                        <h3>Output</h3>
                         <div class="card">
                             ${data.diagnostic}
                         </div>
@@ -212,7 +305,7 @@
                 } else {
                     resultsContent.innerHTML = `
                         <div class="error">
-                            <strong>Error:</strong> Unexpected response format from server.
+                            Unexpected response format from server.
                         </div>
                     `;
                 }
@@ -224,11 +317,7 @@
 
                 resultsContent.innerHTML = `
                     <div class="error">
-                        <strong>Error:</strong> ${error.message}
-                        <p class="mt-2">
-                            Please ensure the Cloudflare Worker is running on <code>localhost:8787</code>.
-                            See the <a href="https://github.com/[your-repo]/README.md">README</a> for setup instructions.
-                        </p>
+                        ${error.message}
                     </div>
                 `;
 
@@ -236,15 +325,95 @@
             } finally {
                 // Reset button state
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Analyze Boundary Behaviors';
+                submitBtn.textContent = 'Run diagnostic';
             }
         });
 
-        // Optional: Reset results when form is modified
-        diagnosticForm.addEventListener('input', () => {
-            if (resultsContent.innerHTML !== '') {
-                // Optionally clear results when user starts editing again
-                // resultsSection.style.display = 'none';
+        // PDF Download
+        downloadPdfBtn.addEventListener('click', async () => {
+            if (!latestResults) {
+                pdfError.textContent = 'No results available.';
+                pdfError.style.display = 'block';
+                return;
+            }
+
+            pdfError.style.display = 'none';
+            downloadPdfBtn.disabled = true;
+            downloadPdfBtn.textContent = 'Generating...';
+
+            try {
+                // Simple PDF generation using browser print to PDF
+                // Create a temporary element with the content
+                const pdfContent = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>Athena — Demo Output</title>
+                        <style>
+                            body { font-family: sans-serif; max-width: 800px; margin: 40px; line-height: 1.6; }
+                            h1 { font-size: 24px; margin-bottom: 10px; }
+                            h2 { font-size: 18px; margin-top: 20px; margin-bottom: 10px; }
+                            .meta { color: #666; font-size: 14px; margin-bottom: 20px; }
+                            .section { margin-bottom: 20px; }
+                            .label { font-weight: bold; }
+                            .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; font-size: 12px; color: #666; }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>Athena — Demo Output</h1>
+                        <div class="meta">Generated: ${new Date(latestResults.timestamp).toLocaleString()}</div>
+
+                        <h2>Input Summary</h2>
+                        <div class="section">
+                            <div><span class="label">Institution:</span> ${latestResults.inputs.institutionName || 'Not provided'}</div>
+                            <div><span class="label">Type:</span> ${latestResults.inputs.institutionType || 'Not provided'}</div>
+                            ${latestResults.inputs.imageFilename ? `<div><span class="label">Image:</span> ${latestResults.inputs.imageFilename}</div>` : ''}
+                        </div>
+
+                        <div class="section">
+                            <div class="label">Stated Boundaries:</div>
+                            <div>${latestResults.inputs.statedBoundaries || 'Not provided'}</div>
+                        </div>
+
+                        <div class="section">
+                            <div class="label">Observed Behaviors:</div>
+                            <div>${latestResults.inputs.observedBehaviors || 'Not provided'}</div>
+                        </div>
+
+                        ${latestResults.inputs.specificConcerns ? `
+                        <div class="section">
+                            <div class="label">Specific Concerns:</div>
+                            <div>${latestResults.inputs.specificConcerns}</div>
+                        </div>
+                        ` : ''}
+
+                        <h2>Output</h2>
+                        <div class="section">
+                            ${latestResults.output}
+                        </div>
+
+                        <div class="footer">
+                            Outputs are diagnostic signals. Interpretation remains external.<br>
+                            No recommendations are produced.
+                        </div>
+                    </body>
+                    </html>
+                `;
+
+                // Open print dialog
+                const printWindow = window.open('', '_blank');
+                printWindow.document.write(pdfContent);
+                printWindow.document.close();
+                printWindow.focus();
+                printWindow.print();
+
+            } catch (error) {
+                pdfError.textContent = 'PDF could not be generated.';
+                pdfError.style.display = 'block';
+                console.error('PDF generation error:', error);
+            } finally {
+                downloadPdfBtn.disabled = false;
+                downloadPdfBtn.textContent = 'Download PDF';
             }
         });
     </script>

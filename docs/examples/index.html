@@ -8,18 +8,19 @@
     <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">Mode</button>
     <nav>
         <div class="container">
             <a href="../" class="site-title">Athena</a>
             <ul>
                 <li><a href="../">Home</a></li>
-                <li><a href="../about/">About</a></li>
+                <li><a href="../about/">Read</a></li>
                 <li><a href="../jbf/">JBF</a></li>
-                <li><a href="../sociology/">Sociology</a></li>
+                <li><a href="../sociology/">Notes</a></li>
                 <li><a href="../diagnostic-class/">Diagnostic</a></li>
                 <li><a href="../demo/">Demo</a></li>
                 <li><a href="../examples/" class="active">Examples</a></li>
-                <li><a href="../info/">Info</a></li>
+                <li><a href="../info/">Citations</a></li>
             </ul>
         </div>
     </nav>
@@ -297,8 +298,10 @@
     </main>
 
     <footer>
-        <p>Athena — Boundary-Respecting Systems</p>
-        <p class="text-secondary">Institutional analysis framework for judgment boundary mapping</p>
+        <p>Athena</p>
+        <p class="text-secondary">Diagnostic boundary framework</p>
     </footer>
+    <script>        // Theme toggle        const toggle = document.getElementById('theme-toggle');        const root = document.documentElement;        const currentTheme = localStorage.getItem('theme') || 'dark';        root.setAttribute('data-theme', currentTheme);        toggle.addEventListener('click', () => {            const theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';            root.setAttribute('data-theme', theme);            localStorage.setItem('theme', theme);        });    </script>
+
 </body>
 </html>
