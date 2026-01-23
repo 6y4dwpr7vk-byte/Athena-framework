@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Athena — Boundary-Respecting Systems. A framework for institutional analysis and judgment boundary mapping.">
-    <title>Athena — Boundary-Respecting Systems</title>
+    <meta name="description" content="Athena — Diagnostic boundary framework">
+    <title>Athena</title>
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">Mode</button>
     <header class="site-header">
         <div class="container">
             <img src="assets/images/athena.png" alt="Athena" class="header-logo">
             <div class="brand">
                 <h1>Athena</h1>
-                <p>Boundary-Respecting Systems</p>
+                <p>Diagnostic boundary framework</p>
             </div>
         </div>
     </header>
@@ -23,32 +24,33 @@
             <a href="./" class="site-title">Athena</a>
             <ul>
                 <li><a href="./" class="active">Home</a></li>
-                <li><a href="about/">About</a></li>
+                <li><a href="about/">Read</a></li>
                 <li><a href="jbf/">JBF</a></li>
-                <li><a href="sociology/">Sociology</a></li>
+                <li><a href="sociology/">Notes</a></li>
                 <li><a href="diagnostic-class/">Diagnostic</a></li>
                 <li><a href="demo/">Demo</a></li>
                 <li><a href="examples/">Examples</a></li>
-                <li><a href="info/">Info</a></li>
+                <li><a href="info/">Citations</a></li>
             </ul>
         </div>
     </nav>
 
     <main class="container">
-        <h1>Athena — Boundary-Respecting Systems</h1>
-        <p class="subtitle">A framework for institutional analysis and judgment boundary mapping</p>
+        <h1>Athena</h1>
+        <p class="subtitle">A boundary model for where pattern systems start acting like governors.</p>
+        <p class="subtitle-muted">Not a decision engine. Not a compliance product.</p>
+
+        <nav class="hero-links">
+            <a href="about/">Read</a> · <a href="demo/">Demo</a> · <a href="info/">Citations</a>
+        </nav>
 
         <section>
             <h2>Overview</h2>
             <p>
-                Athena represents a systematic approach to understanding and implementing boundary-respecting systems
-                across institutional contexts. The framework provides analytical tools for mapping judgment boundaries
-                and evaluating institutional decision-making processes.
+                Athena maps boundary constraints in pattern-matching systems. It outputs diagnostic signals when systems begin to exceed their stated scope.
             </p>
             <p>
-                This work draws upon established principles in organizational theory, institutional analysis, and
-                boundary theory to create a coherent methodology for examining how systems make determinations about
-                scope, authority, and jurisdiction.
+                Outputs are signals, not decisions. Interpretation remains external.
             </p>
         </section>
 
@@ -58,62 +60,63 @@
             <div class="card">
                 <h3>Judgment Boundary Framework (JBF)</h3>
                 <p>
-                    The foundational analytical tool for identifying and mapping decision boundaries within systems.
-                    The JBF provides a structured approach to understanding where judgment is appropriately exercised
-                    and where boundaries must be maintained.
+                    Maps decision boundaries in pattern systems. Indicates where stated scope ends.
                 </p>
-                <p><a href="/jbf/">Explore the Framework →</a></p>
+                <p class="boundary-note">No recommendations are produced.</p>
+                <p><a href="jbf/">JBF</a></p>
             </div>
 
             <div class="card">
                 <h3>Institutional Analysis</h3>
                 <p>
-                    Application of boundary-respecting principles to institutional contexts. This component examines
-                    how organizations, systems, and structures implement appropriate judgment boundaries in practice.
+                    Examines boundary implementation in organizational structures.
                 </p>
-                <p><a href="/sociology/">Read the Sociology Note →</a></p>
+                <p class="boundary-note">Analysis outputs signals, not directives.</p>
+                <p><a href="sociology/">Notes</a></p>
             </div>
 
             <div class="card">
                 <h3>Diagnostic Tools</h3>
                 <p>
-                    Interactive instruments for evaluating boundary-respecting characteristics in existing or proposed
-                    systems. These tools enable practical application of the theoretical framework.
+                    Evaluates boundary characteristics in existing or proposed systems.
                 </p>
-                <p><a href="/demo/">Try the Interactive Tool →</a></p>
+                <p class="boundary-note">Outputs are diagnostic signals only.</p>
+                <p><a href="demo/">Demo</a></p>
             </div>
         </section>
 
         <section>
-            <h2>Academic Foundation</h2>
-            <p>
-                The Athena framework synthesizes research from multiple domains including institutional theory,
-                organizational boundaries, and judgment analysis. The approach maintains methodological rigor while
-                providing practical applicability across diverse contexts.
-            </p>
-            <p>
-                All theoretical foundations and empirical applications are documented in the accompanying papers,
-                available in the <a href="/info/">citations and licensing section</a>.
-            </p>
-        </section>
-
-        <section>
-            <h2>Getting Started</h2>
-            <p>
-                For those new to boundary-respecting systems analysis:
-            </p>
+            <h2>Index</h2>
             <ul>
-                <li><a href="/about/">About the Field</a> — Background and context for this area of study</li>
-                <li><a href="/jbf/">Judgment Boundary Framework</a> — Core methodology and concepts</li>
-                <li><a href="/examples/">Worked Examples</a> — Applied analysis across various domains</li>
-                <li><a href="/demo/">Interactive Tool</a> — Hands-on diagnostic application</li>
+                <li><a href="about/">Read</a></li>
+                <li><a href="jbf/">JBF</a></li>
+                <li><a href="sociology/">Notes</a></li>
+                <li><a href="examples/">Examples</a></li>
+                <li><a href="demo/">Demo</a></li>
+                <li><a href="info/">Citations</a></li>
             </ul>
         </section>
     </main>
 
     <footer>
-        <p>Athena — Boundary-Respecting Systems</p>
-        <p class="text-secondary">Institutional analysis framework for judgment boundary mapping</p>
+        <p>Athena</p>
+        <p class="text-secondary">Diagnostic boundary framework</p>
     </footer>
+
+    <script>
+        // Theme toggle
+        const toggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        root.setAttribute('data-theme', currentTheme);
+
+        toggle.addEventListener('click', () => {
+            const theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        });
+    </script>
 </body>
 </html>
